@@ -6,12 +6,14 @@
  */
 
 function filterArray($validOptions, $input) {
-	for ($i = 0; $i <= count($input); $i++) {
-		if (!in_array($input[$i], $validOptions)) {
-			unset($input[$i]);
-		}
-	}
-	echo implode(', ', $input);
+    $cleanValues = [];
+
+    for ($i = 0; $i < count($input); $i++) {
+        if (in_array($input[$i], $validOptions)) {
+            $cleanValues[] = $input[$i];
+        }
+    }
+    echo implode(', ', $cleanValues);
 }
 
 $input = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
